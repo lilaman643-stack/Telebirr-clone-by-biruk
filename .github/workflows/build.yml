@@ -18,7 +18,7 @@ jobs:
           distribution: 'zulu'
           java-version: '11'
 
-      - name: Set up Flutter Legacy
+      - name: Set up Legacy Flutter
         uses: subosito/flutter-action@v2
         with:
           flutter-version: '2.10.5'
