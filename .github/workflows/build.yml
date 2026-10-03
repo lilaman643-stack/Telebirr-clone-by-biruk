@@ -10,18 +10,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
       - name: Set up Java 11
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v4
         with:
           distribution: 'zulu'
           java-version: '11'
 
-      - name: Set up Legacy Flutter
+      - name: Set up Flutter Legacy
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: '3.3.10'
+          flutter-version: '2.10.5'
           channel: 'stable'
 
       - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
         run: flutter build apk --release --no-sound-null-safety
 
       - name: Upload APK
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: telebirr-release-apk
           path: build/app/outputs/flutter-apk/app-release.apk
