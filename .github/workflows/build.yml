@@ -24,8 +24,14 @@ jobs:
           flutter-version: '2.10.5'
           channel: 'stable'
 
-      - name: Install dependencies
-        run: flutter pub get
+      - name: Disable Analytics & Clean
+        run: |
+          flutter config --no-analytics
+          rm -f pubspec.lock
+          flutter clean
+
+      - name: Get Dependencies
+        run: flutter pub get --suppress-analytics
 
       - name: Build APK
         run: flutter build apk --release --no-sound-null-safety
